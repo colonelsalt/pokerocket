@@ -260,12 +260,10 @@ bool8 sub_80BD460(u8 r0)
 
 bool32 IsRunningDisallowed(u8 metatileBehavior)
 {
-    if (!(gMapHeader.flags & MAP_ALLOW_RUN))
+    if (MetatileBehaviorForbidsBiking(metatileBehavior))
         return TRUE;
-    if (MetatileBehaviorForbidsBiking(metatileBehavior) != TRUE)
-        return FALSE;
     else
-        return TRUE;
+        return FALSE;
 }
 
 static bool8 MetatileBehaviorForbidsBiking(u8 r4)
