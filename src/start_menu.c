@@ -736,17 +736,10 @@ static u8 SaveDialogCB_AskSaveHandleInput(void)
 
 static u8 SaveDialogCB_PrintAskOverwriteText(void)
 {
-    if (gDifferentSaveFile == TRUE)
+    if (gDifferentSaveFile == TRUE) // saving after starting NEW GAME, so good to ask for confirmation
         PrintSaveTextWithFollowupFunc(gText_DifferentGameFile, SaveDialogCB_AskReplacePreviousFilePrintYesNoMenu);
-    else
-        PrintSaveTextWithFollowupFunc(gText_AlreadySaveFile_WouldLikeToOverwrite, SaveDialogCB_AskOverwritePrintYesNoMenu);
-    return SAVECB_RETURN_CONTINUE;
-}
-
-static u8 SaveDialogCB_AskOverwritePrintYesNoMenu(void)
-{
-    DisplayYesNoMenuDefaultYes();
-    sSaveDialogCB = SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput;
+    else // no need for confirmation on regular save
+        sSaveDialogCB = SaveDialogCB_PrintSavingDontTurnOffPower;
     return SAVECB_RETURN_CONTINUE;
 }
 
