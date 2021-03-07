@@ -32,6 +32,7 @@
 *.s.old
 *.s.old2
 *.sa*
+*.ss[0-9]
 *.swo
 *.swp
 *.til

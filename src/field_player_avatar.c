@@ -503,8 +503,12 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-        // speed 2 is fast, same speed as running
-        PlayerGoSpeed2(direction);
+        if (heldKeys & B_BUTTON)
+            // Mach bike speed if B button held down
+            PlayerGoSpeed4(direction);
+        else 
+            // run speed otherwise
+            PlayerGoSpeed2(direction);
         return;
     }
 
@@ -854,7 +858,7 @@ void PlayerRideWaterCurrent(u8 direction)
     PlayerSetAnimId(sub_8064008(direction), 2);
 }
 
-void sub_805C164(u8 direction)
+void PlayerGoSpeed4(u8 direction)
 {
     PlayerSetAnimId(GetWalkFastestMovementAction(direction), 2);
 }

@@ -209,7 +209,7 @@ static void BikeLetGravityTakeTheWheel(UNUSED u8 v)
     u8 collision = CheckNextTileForBikingCollision(DIR_SOUTH);
 
     if (collision == COLLISION_NONE)
-        sub_805C164(DIR_SOUTH);
+        PlayerGoSpeed4(DIR_SOUTH);
     else if (collision == COLLISION_LEDGE_JUMP)
         PlayerJumpLedge(DIR_SOUTH);
 }
