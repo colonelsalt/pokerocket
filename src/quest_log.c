@@ -416,29 +416,11 @@ static bool8 TryRecordQuestLogEntrySequence(struct QuestLogEntry * entry)
     return TRUE;
 }
 
+// This would have loaded the quest log playback, and has been removed
 void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
 {
-    u8 i;
-
-    sub_811381C();
-    sNumScenes = 0;
-    for (i = 0; i < QUEST_LOG_SCENE_COUNT; i++)
-    {
-        if (gSaveBlock1Ptr->questLog[i].startType != 0)
-            sNumScenes++;
-    }
-
-    if (sNumScenes != 0)
-    {
-        gHelpSystemEnabled = FALSE;
-        Task_BeginQuestLogPlayback(taskId);
-        DestroyTask(taskId);
-    }
-    else
-    {
-        SetMainCallback2(CB2_ContinueSavedGame);
-        DestroyTask(taskId);
-    }
+    SetMainCallback2(CB2_ContinueSavedGame);
+    DestroyTask(taskId);
 }
 
 static void Task_BeginQuestLogPlayback(u8 taskId)
@@ -1100,6 +1082,7 @@ static void Task_FinalScene_WaitFade(u8 taskId)
     }
 }
 
+// End of quest log (??)
 static void Task_QuestLogScene_SavedGame(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -1142,6 +1125,7 @@ static void Task_WaitAtEndOfQuestLog(u8 taskId)
 #define tState data[0]
 #define tTimer data[1]
 
+// Where the real game begins??
 static void Task_EndQuestLog(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
