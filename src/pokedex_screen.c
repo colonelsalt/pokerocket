@@ -1855,7 +1855,6 @@ static int sub_8104284(void)
             return 2;
         else
             return 0;
-    case OPTIONS_BUTTON_MODE_HELP:
     default:
         return 0;
     }

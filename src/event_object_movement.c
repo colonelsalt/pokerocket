@@ -5991,6 +5991,7 @@ static bool8 MovementAction_WalkNormalRight_Step1(struct ObjectEvent *objectEven
     return FALSE;
 }
 
+// Shadow related (Surf/Fly)
 void sub_8064E3C(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction, u8 speed, u8 a5)
 {
     s16 displacements[NELEMS(gUnknown_83A6958)];
