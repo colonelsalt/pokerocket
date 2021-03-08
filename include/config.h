@@ -29,6 +29,8 @@
 
 #define ABSPATH(x) (CODE_ROOT x)
 
+#define PLAY_DEBUG
+
 #ifdef ENGLISH
 #define UNITS_IMPERIAL
 #else
