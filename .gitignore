@@ -51,7 +51,7 @@ tags
 tools/agbcc
 tools/binutils
 types_*.taghl
-!.travis/calcrom/calcrom.pl
+!.github/calcrom/calcrom.pl
 !sound/programmable_wave_samples/*.pcm
 _Deparsed_XSubs.pm
 porymap.project.cfg
